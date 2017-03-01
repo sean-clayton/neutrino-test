@@ -4,7 +4,8 @@ module.exports = ({ config }) => {
   const rule = config.module.rule("css");
 
   ExtractTextPlugin.extract({ fallback: "style-loader", use: "css-loader" })
-    .map(({ loader, options }, index) => rule.loader(index, loader, options));
+    .map(({ loader, options }, i) =>
+      rule.loader(`extract-css-${i}`, loader, options));
 
   config.plugin("extract-css").use(ExtractTextPlugin, "[name].css");
 };
