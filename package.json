@@ -1,0 +1,54 @@
+{
+  "name": "neutrino-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {},
+  "license": "MIT",
+  "scripts": {
+    "start": "neutrino start",
+    "build": "neutrino build",
+    "test": "neutrino test"
+  },
+  "config": {
+    "presets": [
+      "neutrino-preset-react",
+      "neutrino-preset-custom"
+    ],
+    "neutrino": {
+      "entry": {
+        "vendor": [
+          "react",
+          "react-dom"
+        ]
+      },
+      "module": {
+        "rule": {
+          "css": {
+            "loader": {
+              "css": {
+                "options": {
+                  "minimize": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "html": {
+      "links": [
+        "styles/index.css"
+      ]
+    }
+  },
+  "devDependencies": {
+    "extract-text-webpack-plugin": "^2.0.0",
+    "neutrino": "^4.3.0",
+    "neutrino-preset-react": "^4.2.3"
+  },
+  "dependencies": {
+    "normalize.css": "^5.0.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
+}
